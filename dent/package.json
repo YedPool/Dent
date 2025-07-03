@@ -1,0 +1,121 @@
+{
+  "name": "indent-selection",
+  "displayName": "Indent Selection",
+  "description": "Right-click to indent your selected code as a block",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.60.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/username/indent-selection.git"
+  },
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "indent-selection.indentBlock1",
+        "title": "Indent Selection by 1 Level"
+      },
+      {
+        "command": "indent-selection.indentBlock2",
+        "title": "Indent Selection by 2 Levels"
+      },
+      {
+        "command": "indent-selection.indentBlock3",
+        "title": "Indent Selection by 3 Levels"
+      },
+      {
+        "command": "indent-selection.indentBlock4",
+        "title": "Indent Selection by 4 Levels"
+      },
+      {
+        "command": "indent-selection.outdentBlock1",
+        "title": "Outdent Selection by 1 Level"
+      },
+      {
+        "command": "indent-selection.outdentBlock2",
+        "title": "Outdent Selection by 2 Levels"
+      },
+      {
+        "command": "indent-selection.outdentBlock3",
+        "title": "Outdent Selection by 3 Levels"
+      },
+      {
+        "command": "indent-selection.outdentBlock4",
+        "title": "Outdent Selection by 4 Levels"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "submenu": "indent-selection.indentMenu",
+          "group": "1_modification",
+          "when": "editorHasSelection"
+        }
+      ],
+      "indent-selection.indentMenu": [
+        {
+          "command": "indent-selection.indentBlock1",
+          "group": "1_indent"
+        },
+        {
+          "command": "indent-selection.indentBlock2",
+          "group": "1_indent"
+        },
+        {
+          "command": "indent-selection.indentBlock3",
+          "group": "1_indent"
+        },
+        {
+          "command": "indent-selection.indentBlock4",
+          "group": "1_indent"
+        },
+        {
+          "command": "indent-selection.outdentBlock1",
+          "group": "2_outdent"
+        },
+        {
+          "command": "indent-selection.outdentBlock2",
+          "group": "2_outdent"
+        },
+        {
+          "command": "indent-selection.outdentBlock3",
+          "group": "2_outdent"
+        },
+        {
+          "command": "indent-selection.outdentBlock4",
+          "group": "2_outdent"
+        }
+      ]
+    },
+    "submenus": [
+      {
+        "id": "indent-selection.indentMenu",
+        "label": "Indent/Outdent Selection",
+        "icon": "$(indent)"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile",
+    "lint": "eslint src --ext ts",
+    "test": "echo \"Skipping tests\" && exit 0"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.60.0",
+    "@types/node": "16.x",
+    "@typescript-eslint/eslint-plugin": "^5.30.0",
+    "@typescript-eslint/parser": "^5.30.0",
+    "eslint": "^8.18.0",
+    "typescript": "^4.7.4",
+    "@types/mocha": "^9.1.1"
+  }
+}
